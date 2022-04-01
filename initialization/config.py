@@ -1,0 +1,5 @@
+saved_models_dir = './saved_models'
+logs = 'logs/'
+vispr_path = '/home/c3-0/ishan/datasets/vispr'
+ucf101_path = '/home/ishan/self_supervised/ucf101_extracted/data'
+dl_vispath = 'dl_visualization'

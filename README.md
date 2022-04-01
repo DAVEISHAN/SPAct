@@ -3,6 +3,26 @@ Official code repository for SPAct: Self-supervised Privacy Preservation for Act
 
 Work in progress ...
 
+### Dataset preparation
+
+UCF101: https://www.crcv.ucf.edu/data/UCF101/UCF101.rar
+<br/>HMDB51: http://serre-lab.clps.brown.edu/wp-content/uploads/2013/10/hmdb51_org.rar
+<br/>VISPR: https://tribhuvanesh.github.io/vpa/
+<br/>PA-HMDB51: https://github.com/TAMU-VITA/PA-HMDB51
+<br/>LSHVU dataset: https://github.com/holistic-video-understanding/HVU-Dataset
+
+### Intialization of networks
+TODO: Add code
+
+### Training of Anonymization function
+TODO: Add code
+
+### Evaluation of learned anonymization function
+TODO: Add code
+
+### Anonymization Visualization
+TODO: Add code
+
 ### Citation
 
 If you find the repo useful for your research, please consider citing our paper: 
