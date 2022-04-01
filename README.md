@@ -13,7 +13,7 @@ If you find the repo useful for your research, please consider citing our paper:
   booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
   year={2022}
 }
-
+```
 ### Useful code repositories
 
 [1] Privacy preserving action recognition (Wu et al., TPAMI 2020): https://github.com/VITA-Group/Privacy-AdversarialLearning
