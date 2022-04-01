@@ -16,7 +16,7 @@ If you find the repo useful for your research, please consider citing our paper:
 ```
 ### Useful code repositories
 
-[1] Privacy preserving action recognition (Wu et al., TPAMI 2020): https://github.com/VITA-Group/Privacy-AdversarialLearning
-[2] PA-HMDB annoatations https://github.com/VITA-Group/PA-HMDB51
-[3] PyTorch Implementation of UNet: https://github.com/milesial/Pytorch-UNet
-[4] Torchvision models: https://github.com/pytorch/vision/tree/main/torchvision/models
+[1] Privacy preserving action recognition (Wu et al., TPAMI 2020): https://github.com/VITA-Group/Privacy-AdversarialLearning 
+<br/>[2] PA-HMDB annoatations https://github.com/VITA-Group/PA-HMDB51
+<br/>[3] PyTorch Implementation of UNet: https://github.com/milesial/Pytorch-UNet
+<br/>[4] Torchvision models: https://github.com/pytorch/vision/tree/main/torchvision/models
