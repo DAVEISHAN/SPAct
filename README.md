@@ -12,7 +12,12 @@ UCF101: https://www.crcv.ucf.edu/data/UCF101/UCF101.rar
 <br/>LSHVU dataset: https://github.com/holistic-video-understanding/HVU-Dataset
 
 ### Intialization of networks
-TODO: Add code
+``cd initialization``
+To run initialization training for anonymization function: 
+```python train_recon.py --run_id="give_any_expname_you_like"
+  # add --restart argument to continue the stopped training
+ ```
+
 
 ### Training of Anonymization function
 TODO: Add code
