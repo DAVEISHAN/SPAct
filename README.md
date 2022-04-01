@@ -1,6 +1,8 @@
 # SPAct
 Official code repository for SPAct: Self-supervised Privacy Preservation for Action Recognition [CVPR-2022]
 
+Code coming soon
+
 ### Citation
 
 If you find the repo useful for your research, please consider citing our paper: 
