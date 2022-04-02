@@ -1,8 +1,6 @@
 # SPAct
 Official code repository for SPAct: Self-supervised Privacy Preservation for Action Recognition [CVPR-2022]
 
-Work in progress ...
-
 ### Dataset preparation
 
 UCF101: https://www.crcv.ucf.edu/data/UCF101/UCF101.rar
@@ -13,7 +11,7 @@ UCF101: https://www.crcv.ucf.edu/data/UCF101/UCF101.rar
 
 ### Intialization of networks
 ``cd initialization`` <br/>
-To run initialization training for anonymization function: 
+To run initialization training for anonymization function ($f_A$): 
 ```
   python train_recon.py --run_id="give_any_expname_you_like"
   # add --restart argument to continue the stopped training
@@ -21,7 +19,11 @@ To run initialization training for anonymization function:
 
 
 ### Training of Anonymization function
-TODO: Add code
+``cd anonymization_training`` <br/>
+Load the initilization weights of $f_A$, $f_B$ and $f_T$ and start training with the following command:
+```
+  python train_ssl_minimax2.py --run_id="give_any_expname_you_like"
+```
 
 ### Evaluation of learned anonymization function
 TODO: Add code
