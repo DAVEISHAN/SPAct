@@ -17,18 +17,18 @@ import parameters_BL as params
 from torchvision.models.utils import load_state_dict_from_url
 
 def ssl_pretrained_load():
-    given = torch.load('/home/c3-0/ishan/privacy_preserving1/BYOL_load/model_final_checkpoint_phase799.torch')
+#     given = torch.load('/home/c3-0/ishan/privacy_preserving1/BYOL_load/model_final_checkpoint_phase799.torch')
     r50 = torchvision.models.resnet50(pretrained = False, progress = False)
-    state_dict = r50.state_dict()
-    #The following is the backbone model loading
+#     state_dict = r50.state_dict()
+#     #The following is the backbone model loading
 
-    junk_trunk = '_feature_blocks.'                             
-    for key, value in given['classy_state_dict']['base_model']['model']['trunk'].items():
-        layer_name = key.replace('_feature_blocks.', '')
-        state_dict[layer_name] = value 
-    r50.load_state_dict(state_dict, strict = True)
+#     junk_trunk = '_feature_blocks.'                             
+#     for key, value in given['classy_state_dict']['base_model']['model']['trunk'].items():
+#         layer_name = key.replace('_feature_blocks.', '')
+#         state_dict[layer_name] = value 
+#     r50.load_state_dict(state_dict, strict = True)
     r50.fc = nn.Identity()
-    print('Backbone loaded successfully!')
+#     print('Backbone loaded successfully!')
 
     ############################ MLP building
 
