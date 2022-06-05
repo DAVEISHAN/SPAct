@@ -18,12 +18,24 @@ import torchvision.transforms as trans
 
 class baseline_dataloader_train_strong(Dataset):
 
-    def __init__(self, shuffle = True, data_percentage = 1.0):
+    def __init__(self, shuffle = True, data_percentage = 1.0, split = 1):
         # self.labeled_datapaths = open(os.path.join(cfg.path_folder,'10percentTrain_crcv.txt'),'r').read().splitlines()
-        self.labeled_datapaths = open(os.path.join(cfg.path_folder,'ucf101_labeled.txt'),'r').read().splitlines()
-        self.unlabled_datapaths = open(os.path.join(cfg.path_folder,'ucf101_unlabeled.txt'),'r').read().splitlines()
+#         self.labeled_datapaths = open(os.path.join(cfg.path_folder,'ucf101_labeled.txt'),'r').read().splitlines()
+#         self.unlabled_datapaths = open(os.path.join(cfg.path_folder,'ucf101_unlabeled.txt'),'r').read().splitlines()
+        
+        
+        
 
-        self.all_paths = self.labeled_datapaths + self.unlabled_datapaths
+#         self.all_paths = self.labeled_datapaths + self.unlabled_datapaths
+        if split == 1:
+            self.all_paths = open(os.path.join(cfg.path_folder, 'ucfTrainTestlist/trainlist01.txt'),'r').read().splitlines()
+        elif split ==2: 
+            self.all_paths = open(os.path.join(cfg.path_folder, 'ucfTrainTestlist/trainlist02.txt'),'r').read().splitlines()
+        elif split ==3: 
+            self.all_paths = open(os.path.join(cfg.path_folder, 'ucfTrainTestlist/trainlist03.txt'),'r').read().splitlines()
+        else:
+            print(f'Invalid split input: {split}')
+        
         self.classes= json.load(open(cfg.class_mapping_ucf101))['classes']
         self.shuffle = shuffle
 
@@ -49,10 +61,12 @@ class baseline_dataloader_train_strong(Dataset):
     def process_data(self, idx):
     
         # label_building
-        vid_path = self.data[idx]
+#         vid_path = self.data[idx]
+        vid_path = cfg.path_folder + '/UCF-101/' + self.data[idx].split(' ')[0]
         # print(vid_path)
         # exit()
-        label = self.classes[vid_path.split('/')[6]] # THIS MIGHT BE DIFFERNT AFTER STEVE MOVE THE PATHS  
+        label = self.classes[vid_path.split('/')[-2]]
+#         label = self.classes[vid_path.split('/')[6]] # THIS MIGHT BE DIFFERNT AFTER STEVE MOVE THE PATHS  
         
         # clip_building
         clip = self.build_clip(vid_path)
@@ -188,9 +202,22 @@ class baseline_dataloader_train_strong(Dataset):
 class multi_baseline_dataloader_val_strong(Dataset):
 
     def __init__(self, shuffle = True, data_percentage = 1.0, mode = 0, skip = 1, \
-                hflip=0, cropping_factor=1.0):
-        self.labeled_datapaths = open(os.path.join(cfg.path_folder,'ucf101_test.txt'),'r').read().splitlines()
-        self.all_paths = self.labeled_datapaths
+                hflip=0, cropping_factor=1.0, split = 1):
+#         self.labeled_datapaths = open(os.path.join(cfg.path_folder,'ucf101_test.txt'),'r').read().splitlines()
+        
+        
+        
+#         self.all_paths = self.labeled_datapaths
+        if split == 1:
+            self.all_paths = open(os.path.join(cfg.path_folder, 'ucfTrainTestlist/testlist01.txt'),'r').read().splitlines()
+        elif split ==2: 
+            self.all_paths = open(os.path.join(cfg.path_folder, 'ucfTrainTestlist/testlist02.txt'),'r').read().splitlines()
+        elif split ==3: 
+            self.all_paths = open(os.path.join(cfg.path_folder, 'ucfTrainTestlist/testlist03.txt'),'r').read().splitlines()
+        else:
+            print(f'Invalid split input: {split}')
+        
+        
         self.classes= json.load(open(cfg.class_mapping_ucf101))['classes']
         self.shuffle = shuffle
 
@@ -218,8 +245,8 @@ class multi_baseline_dataloader_val_strong(Dataset):
     def process_data(self, idx):
     
         # label_building
-        vid_path = self.data[idx]
-        label = self.classes[vid_path.split('/')[6]] # THIS MIGHT BE DIFFERNT AFTER STEVE MOVE THE PATHS  
+        vid_path = cfg.path_folder + '/UCF-101/' + self.data[idx].split(' ')[0]
+        label = self.classes[vid_path.split('/')[-2]] # THIS MIGHT BE DIFFERNT AFTER STEVE MOVE THE PATHS  
         
         # clip_building
         clip, frame_list = self.build_clip(vid_path)
